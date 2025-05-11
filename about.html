@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Vaibhaav.tech</title>
+  <meta name="description" content="About Vaibhaav - My journey, background, and aspirations in the tech world">
+  
+  <!-- Favicon and Device Icons -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vaibhaav.tech/about.html">
+  <meta property="og:title" content="About | Vaibhaav.tech">
+  <meta property="og:description" content="About Vaibhaav - My journey, background, and aspirations in the tech world">
+  <meta property="og:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="vaibhaav.tech">
+  <meta property="twitter:url" content="https://vaibhaav.tech/about.html">
+  <meta name="twitter:title" content="About | Vaibhaav.tech">
+  <meta name="twitter:description" content="About Vaibhaav - My journey, background, and aspirations in the tech world">
+  <meta name="twitter:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Preload Font -->
+  <link rel="preload" href="/fonts/woff2/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Inline critical CSS -->
+  <style>
+    :root {
+      --color-bg-dark: #171717;
+      --color-bg-light: #f8f8f8;
+      --color-text-dark: #000000;
+      --color-text-light: #FBFBFB;
+      --color-link-dark: #4a89dc;
+      --color-link-light: #2964b9;
+    }
+    
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .bg-dark {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    .bg-light {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-dark);
+    }
+    
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .bg-dark .nav-links a:hover {
+      color: var(--color-link-dark);
+    }
+    
+    .bg-light .nav-links a:hover {
+      color: var(--color-link-light);
+    }
+    
+    main {
+      padding: 2rem 0;
+    }
+    
+    article {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+    
+    .article-title {
+      margin-bottom: 2rem;
+    }
+    
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(125, 125, 125, 0.2);
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .social-links li {
+      margin-right: 1rem;
+    }
+    
+    .social-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    #theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      margin-left: 1rem;
+      color: inherit;
+    }
+    
+    .no-js {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    @media (max-width: 600px) {
+      .nav-links li {
+        margin-left: 1rem;
+      }
+    }
+  </style>
+  
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      document.documentElement.classList.remove('no-js');
+      var storageKey = 'theme-preference';
+
+      var getColorPreference = function() {
+        if (localStorage.getItem(storageKey))
+          return localStorage.getItem(storageKey);
+        else
+          return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      };
+
+      var theme = { value: getColorPreference() };
+
+      var reflectPreference = function() {
+        document.documentElement.classList.remove('bg-light', 'bg-dark');
+        document.documentElement.classList.add('bg-' + theme.value);
+        document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+      };
+
+      reflectPreference();
+
+      window.onload = function() {
+        reflectPreference();
+
+        document.querySelector('#theme-toggle')?.addEventListener('click', function() {
+          theme.value = theme.value === 'light' ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+      };
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', function({matches:isDark}) {
+          theme.value = isDark ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+    })();
+  </script>
+  
+  <!-- Set initial theme -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme-preference') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.add(`bg-${theme}`);
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="nav-container container">
+          <div class="logo">
+            <a href="/">vaibhaav.tech</a>
+          </div>
+          <ul class="nav-links flex-list">
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/progress.html">Progress</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li>
+              <button id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+                🌓
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <article>
+        <h1 class="article-title">My Journey From Education to Technology</h1>
+        
+        <div class="article-content">
+          <p>
+            Growing up, I was always fascinated by how things worked. Whether it was taking apart toys to see their mechanisms 
+            or exploring the early days of the internet, my curiosity was insatiable. However, my journey to technology wasn't 
+            straightforward.
+          </p>
+          
+          <p>
+            After completing my education, I initially pursued a career in [previous field]. While I learned valuable skills 
+            and enjoyed aspects of this work, I always felt a pull toward the world of technology. The rapid innovation, 
+            problem-solving opportunities, and potential for positive impact aligned perfectly with my personal values and interests.
+          </p>
+          
+          <p>
+            What finally pushed me to make the transition was [specific catalyst or event]. This moment of clarity made me realize 
+            that life is too short not to pursue what truly excites you. I began by learning the fundamentals of programming through 
+            online courses, bootcamps, and countless hours of practice.
+          </p>
+          
+          <p>
+            The learning curve was steep, and there were many moments of frustration. However, the satisfaction of solving a 
+            complex problem or building something functional from scratch was unlike anything I had experienced before. Each 
+            breakthrough reinforced my decision to change paths.
+          </p>
+          
+          <p>
+            Today, I specialize in [your tech specialties, e.g., "web development with a focus on JavaScript frameworks like React 
+            and Node.js"]. I'm particularly interested in [specific area of interest, e.g., "creating accessible web applications 
+            that improve user experience for everyone"].
+          </p>
+          
+          <p>
+            Beyond technical skills, my background in [previous field] has given me a unique perspective. I bring [transferable skills, 
+            e.g., "strong communication abilities, project management experience, and a user-centered approach"] to my technical work, 
+            which helps me bridge the gap between technical solutions and human needs.
+          </p>
+          
+          <p>
+            This website serves as both a portfolio of my work and a documentation of my ongoing learning journey. I believe in 
+            continuous improvement and knowledge sharing, which is why I maintain a blog and progress reports detailing what I'm 
+            currently learning and building.
+          </p>
+          
+          <p>
+            Whether you're a potential employer, a fellow developer, or someone considering their own career transition, I hope 
+            you find something valuable here. Feel free to reach out through the social links below—I'm always open to discussions, 
+            collaborations, or simply connecting with like-minded individuals.
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <ul class="social-links">
+        <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://twitter.com/yourusername" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <p>&copy; 2023 Vaibhaav.tech. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html> 

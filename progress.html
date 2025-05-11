@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Reports | Vaibhaav.tech</title>
+  <meta name="description" content="Tracking my learning journey and progress in technology, programming, and personal growth">
+  
+  <!-- Favicon and Device Icons -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vaibhaav.tech/progress.html">
+  <meta property="og:title" content="Progress Reports | Vaibhaav.tech">
+  <meta property="og:description" content="Tracking my learning journey and progress in technology, programming, and personal growth">
+  <meta property="og:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="vaibhaav.tech">
+  <meta property="twitter:url" content="https://vaibhaav.tech/progress.html">
+  <meta name="twitter:title" content="Progress Reports | Vaibhaav.tech">
+  <meta name="twitter:description" content="Tracking my learning journey and progress in technology, programming, and personal growth">
+  <meta name="twitter:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Preload Font -->
+  <link rel="preload" href="/fonts/woff2/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Inline critical CSS -->
+  <style>
+    :root {
+      --color-bg-dark: #171717;
+      --color-bg-light: #f8f8f8;
+      --color-text-dark: #000000;
+      --color-text-light: #FBFBFB;
+      --color-link-dark: #4a89dc;
+      --color-link-light: #2964b9;
+    }
+    
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .bg-dark {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    .bg-light {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-dark);
+    }
+    
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .bg-dark .nav-links a:hover {
+      color: var(--color-link-dark);
+    }
+    
+    .bg-light .nav-links a:hover {
+      color: var(--color-link-light);
+    }
+    
+    main {
+      padding: 2rem 0;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .report-list {
+      column-count: 2;
+      column-gap: 2rem;
+    }
+    
+    .post-item {
+      margin-bottom: 1.5rem;
+      break-inside: avoid;
+    }
+    
+    .post-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .post-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .post-title:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+    }
+    
+    .post-meta {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #666;
+    }
+    
+    .bg-dark .post-meta {
+      color: #aaa;
+    }
+    
+    .post-tags {
+      margin-left: 1rem;
+    }
+    
+    .tag {
+      margin-right: 0.5rem;
+    }
+    
+    .post-description {
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(125, 125, 125, 0.2);
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .social-links li {
+      margin-right: 1rem;
+    }
+    
+    .social-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    #theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      margin-left: 1rem;
+      color: inherit;
+    }
+    
+    .no-js {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    @media (max-width: 768px) {
+      .report-list {
+        column-count: 1;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .nav-links li {
+        margin-left: 1rem;
+      }
+      
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      document.documentElement.classList.remove('no-js');
+      var storageKey = 'theme-preference';
+
+      var getColorPreference = function() {
+        if (localStorage.getItem(storageKey))
+          return localStorage.getItem(storageKey);
+        else
+          return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      };
+
+      var theme = { value: getColorPreference() };
+
+      var reflectPreference = function() {
+        document.documentElement.classList.remove('bg-light', 'bg-dark');
+        document.documentElement.classList.add('bg-' + theme.value);
+        document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+      };
+
+      reflectPreference();
+
+      window.onload = function() {
+        reflectPreference();
+
+        document.querySelector('#theme-toggle')?.addEventListener('click', function() {
+          theme.value = theme.value === 'light' ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+      };
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', function({matches:isDark}) {
+          theme.value = isDark ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+    })();
+  </script>
+  
+  <!-- Set initial theme -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme-preference') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.add(`bg-${theme}`);
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="nav-container container">
+          <div class="logo">
+            <a href="/">vaibhaav.tech</a>
+          </div>
+          <ul class="nav-links flex-list">
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/progress.html">Progress</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li>
+              <button id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+                🌓
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="header-container">
+        <h1>Progress Reports</h1>
+        <p>Tracking my learning journey in technology, programming, and personal growth</p>
+      </div>
+      
+      <div class="report-list">
+        <div class="post-item">
+          <a href="/progress-report-1.html" class="post-link">
+            <h2 class="post-title">Learning JavaScript Frameworks</h2>
+            <div class="post-meta">
+              <div class="post-date">October 5, 2023</div>
+              <div class="post-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/progress-report-2.html" class="post-link">
+            <h2 class="post-title">Building My First Mobile App</h2>
+            <div class="post-meta">
+              <div class="post-date">November 12, 2023</div>
+              <div class="post-tags">
+                <span class="tag">Mobile</span>
+                <span class="tag">React Native</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/progress-report-3.html" class="post-link">
+            <h2 class="post-title">Exploring Machine Learning</h2>
+            <div class="post-meta">
+              <div class="post-date">December 8, 2023</div>
+              <div class="post-tags">
+                <span class="tag">ML</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/progress-report-4.html" class="post-link">
+            <h2 class="post-title">Backend Development with Node.js</h2>
+            <div class="post-meta">
+              <div class="post-date">January 15, 2024</div>
+              <div class="post-tags">
+                <span class="tag">Backend</span>
+                <span class="tag">Node.js</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/progress-report-5.html" class="post-link">
+            <h2 class="post-title">Learning Database Design</h2>
+            <div class="post-meta">
+              <div class="post-date">February 3, 2024</div>
+              <div class="post-tags">
+                <span class="tag">SQL</span>
+                <span class="tag">Database</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/progress-report-6.html" class="post-link">
+            <h2 class="post-title">Implementing Authentication Systems</h2>
+            <div class="post-meta">
+              <div class="post-date">February 20, 2024</div>
+              <div class="post-tags">
+                <span class="tag">Security</span>
+                <span class="tag">Auth</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/progress-report-7.html" class="post-link">
+            <h2 class="post-title">Diving into Cloud Services</h2>
+            <div class="post-meta">
+              <div class="post-date">March 5, 2024</div>
+              <div class="post-tags">
+                <span class="tag">AWS</span>
+                <span class="tag">Cloud</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/progress-report-8.html" class="post-link">
+            <h2 class="post-title">Exploring Serverless Architecture</h2>
+            <div class="post-meta">
+              <div class="post-date">March 18, 2024</div>
+              <div class="post-tags">
+                <span class="tag">Serverless</span>
+                <span class="tag">Architecture</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <ul class="social-links">
+        <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://twitter.com/yourusername" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <p>&copy; 2023 Vaibhaav.tech. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html> 

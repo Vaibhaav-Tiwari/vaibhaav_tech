@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started with Web Development | Vaibhaav.tech</title>
+  <meta name="description" content="A comprehensive guide for beginners looking to start their journey in web development.">
+  
+  <!-- Favicon and Device Icons -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://vaibhaav.tech/blog-post-1.html">
+  <meta property="og:title" content="Getting Started with Web Development | Vaibhaav.tech">
+  <meta property="og:description" content="A comprehensive guide for beginners looking to start their journey in web development.">
+  <meta property="og:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="vaibhaav.tech">
+  <meta property="twitter:url" content="https://vaibhaav.tech/blog-post-1.html">
+  <meta name="twitter:title" content="Getting Started with Web Development | Vaibhaav.tech">
+  <meta name="twitter:description" content="A comprehensive guide for beginners looking to start their journey in web development.">
+  <meta name="twitter:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Preload Font -->
+  <link rel="preload" href="/fonts/woff2/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Inline critical CSS -->
+  <style>
+    :root {
+      --color-bg-dark: #171717;
+      --color-bg-light: #f8f8f8;
+      --color-text-dark: #000000;
+      --color-text-light: #FBFBFB;
+      --color-link-dark: #4a89dc;
+      --color-link-light: #2964b9;
+    }
+    
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .bg-dark {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    .bg-light {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-dark);
+    }
+    
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .bg-dark .nav-links a:hover {
+      color: var(--color-link-dark);
+    }
+    
+    .bg-light .nav-links a:hover {
+      color: var(--color-link-light);
+    }
+    
+    main {
+      padding: 2rem 0;
+    }
+    
+    article {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+    
+    .article-title {
+      margin-bottom: 1rem;
+    }
+    
+    .article-meta {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #666;
+    }
+    
+    .bg-dark .article-meta {
+      color: #aaa;
+    }
+    
+    .article-tags {
+      margin-left: 1rem;
+    }
+    
+    .tag {
+      margin-right: 0.5rem;
+    }
+    
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+    
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-content pre {
+      background-color: #f2f2f2;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+    
+    .bg-dark .article-content pre {
+      background-color: #2a2a2a;
+    }
+    
+    .article-content code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.9em;
+    }
+    
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(125, 125, 125, 0.2);
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .social-links li {
+      margin-right: 1rem;
+    }
+    
+    .social-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    #theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      margin-left: 1rem;
+      color: inherit;
+    }
+    
+    .no-js {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    @media (max-width: 600px) {
+      .nav-links li {
+        margin-left: 1rem;
+      }
+      
+      .article-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .article-tags {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+  
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      document.documentElement.classList.remove('no-js');
+      var storageKey = 'theme-preference';
+
+      var getColorPreference = function() {
+        if (localStorage.getItem(storageKey))
+          return localStorage.getItem(storageKey);
+        else
+          return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      };
+
+      var theme = { value: getColorPreference() };
+
+      var reflectPreference = function() {
+        document.documentElement.classList.remove('bg-light', 'bg-dark');
+        document.documentElement.classList.add('bg-' + theme.value);
+        document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+      };
+
+      reflectPreference();
+
+      window.onload = function() {
+        reflectPreference();
+
+        document.querySelector('#theme-toggle')?.addEventListener('click', function() {
+          theme.value = theme.value === 'light' ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+      };
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', function({matches:isDark}) {
+          theme.value = isDark ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+    })();
+  </script>
+  
+  <!-- Set initial theme -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme-preference') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.add(`bg-${theme}`);
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="nav-container container">
+          <div class="logo">
+            <a href="/">vaibhaav.tech</a>
+          </div>
+          <ul class="nav-links flex-list">
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/progress.html">Progress</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li>
+              <button id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+                🌓
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <article>
+        <h1 class="article-title">Getting Started with Web Development</h1>
+        <div class="article-meta">
+          <div class="article-date">Published on July 15, 2023</div>
+          <div class="article-tags">
+            <span class="tag">Web Development</span>
+            <span class="tag">Beginners</span>
+          </div>
+        </div>
+        
+        <div class="article-content">
+          <p>
+            So you've decided to dive into the world of web development? Congratulations! You're about to embark on a journey that's challenging, rewarding, and constantly evolving. Whether you're looking to build a career, create a side project, or just learn something new, web development offers endless possibilities.
+          </p>
+          
+          <p>
+            In this guide, I'll walk you through the essential steps to start your web development journey on the right foot. We'll cover the fundamental technologies, recommended learning resources, and practical advice to help you progress efficiently.
+          </p>
+          
+          <h2>Understanding the Basics</h2>
+          
+          <p>
+            Before diving into complex frameworks and libraries, it's crucial to have a solid understanding of the three core technologies of the web:
+          </p>
+          
+          <ul>
+            <li><strong>HTML (HyperText Markup Language)</strong> - The skeleton of web pages, defining the structure and content</li>
+            <li><strong>CSS (Cascading Style Sheets)</strong> - The styling language that makes web pages visually appealing</li>
+            <li><strong>JavaScript</strong> - The programming language that adds interactivity to websites</li>
+          </ul>
+          
+          <p>
+            These three technologies work together to create everything you see on the web. HTML provides structure, CSS adds style, and JavaScript brings everything to life with functionality and interactivity.
+          </p>
+          
+          <h2>Setting Up Your Development Environment</h2>
+          
+          <p>
+            To start writing code, you'll need a few basic tools:
+          </p>
+          
+          <ul>
+            <li><strong>Text Editor or IDE</strong> - Programs like Visual Studio Code, Sublime Text, or Atom are popular choices</li>
+            <li><strong>Web Browser</strong> - Modern browsers like Chrome, Firefox, or Edge have excellent developer tools built-in</li>
+            <li><strong>Version Control</strong> - Git is the industry standard for tracking changes in your code</li>
+          </ul>
+          
+          <p>
+            Visual Studio Code (VS Code) is highly recommended for beginners due to its user-friendly interface, extensive plugin ecosystem, and excellent support for web technologies.
+          </p>
+          
+          <h2>Learning Resources</h2>
+          
+          <p>
+            There are countless resources available to learn web development, but here are some of the best for beginners:
+          </p>
+          
+          <ul>
+            <li><strong>Mozilla Developer Network (MDN)</strong> - Excellent documentation and tutorials for HTML, CSS, and JavaScript</li>
+            <li><strong>freeCodeCamp</strong> - A free platform with interactive coding challenges and projects</li>
+            <li><strong>The Odin Project</strong> - A comprehensive curriculum that covers web development from the ground up</li>
+            <li><strong>YouTube Channels</strong> - Creators like Traversy Media, Web Dev Simplified, and Kevin Powell offer excellent tutorials</li>
+          </ul>
+          
+          <h2>Building Projects</h2>
+          
+          <p>
+            The most effective way to learn web development is by building projects. Start with simple ones and gradually increase the complexity:
+          </p>
+          
+          <ol>
+            <li>Static personal website (HTML & CSS)</li>
+            <li>Interactive form with validation (HTML, CSS & JavaScript)</li>
+            <li>To-do list application (HTML, CSS & JavaScript)</li>
+            <li>Weather app using a public API</li>
+            <li>Full-stack application with a backend</li>
+          </ol>
+          
+          <p>
+            Each project will reinforce what you've learned and introduce new challenges. Don't worry about making mistakes—debugging is an essential skill in web development!
+          </p>
+          
+          <h2>Next Steps: Expanding Your Knowledge</h2>
+          
+          <p>
+            Once you're comfortable with the basics, you can explore more advanced topics:
+          </p>
+          
+          <ul>
+            <li><strong>Frontend Frameworks</strong> - React, Vue, or Angular can help you build more complex interfaces</li>
+            <li><strong>CSS Frameworks</strong> - Bootstrap, Tailwind CSS, or Bulma can speed up your styling workflow</li>
+            <li><strong>Backend Development</strong> - Node.js, Python (Django/Flask), or Ruby on Rails allow you to build server-side applications</li>
+            <li><strong>Databases</strong> - SQL (MySQL, PostgreSQL) or NoSQL (MongoDB) for data storage</li>
+            <li><strong>Deployment</strong> - Netlify, Vercel, or Heroku for hosting your applications</li>
+          </ul>
+          
+          <h2>Final Advice</h2>
+          
+          <p>
+            Web development can be overwhelming at first, but remember these key points:
+          </p>
+          
+          <ul>
+            <li><strong>Start Small</strong> - Focus on one concept at a time</li>
+            <li><strong>Practice Regularly</strong> - Consistency is more important than marathon coding sessions</li>
+            <li><strong>Join Communities</strong> - Reddit, Discord, or local meetups can provide support and motivation</li>
+            <li><strong>Be Patient</strong> - Learning takes time, and everyone progresses at their own pace</li>
+            <li><strong>Have Fun</strong> - Build projects that genuinely interest you</li>
+          </ul>
+          
+          <p>
+            Remember that every professional web developer started exactly where you are now. With dedication, patience, and consistent practice, you'll make progress faster than you might expect.
+          </p>
+          
+          <p>
+            Happy coding!
+          </p>
+        </div>
+      </article>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <ul class="social-links">
+        <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://twitter.com/yourusername" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <p>&copy; 2023 Vaibhaav.tech. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html> 

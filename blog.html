@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Vaibhaav.tech</title>
+  <meta name="description" content="Articles and insights on programming, technology, and personal growth">
+  
+  <!-- Favicon and Device Icons -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vaibhaav.tech/blog.html">
+  <meta property="og:title" content="Blog | Vaibhaav.tech">
+  <meta property="og:description" content="Articles and insights on programming, technology, and personal growth">
+  <meta property="og:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="vaibhaav.tech">
+  <meta property="twitter:url" content="https://vaibhaav.tech/blog.html">
+  <meta name="twitter:title" content="Blog | Vaibhaav.tech">
+  <meta name="twitter:description" content="Articles and insights on programming, technology, and personal growth">
+  <meta name="twitter:image" content="/images/vaibhaav-social.png">
+  
+  <!-- Preload Font -->
+  <link rel="preload" href="/fonts/woff2/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Inline critical CSS -->
+  <style>
+    :root {
+      --color-bg-dark: #171717;
+      --color-bg-light: #f8f8f8;
+      --color-text-dark: #000000;
+      --color-text-light: #FBFBFB;
+      --color-link-dark: #4a89dc;
+      --color-link-light: #2964b9;
+    }
+    
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .bg-dark {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    .bg-light {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-dark);
+    }
+    
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .bg-dark .nav-links a:hover {
+      color: var(--color-link-dark);
+    }
+    
+    .bg-light .nav-links a:hover {
+      color: var(--color-link-light);
+    }
+    
+    main {
+      padding: 2rem 0;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .post-item {
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    
+    .post-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .post-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .post-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .post-title:hover {
+      text-decoration: underline;
+    }
+    
+    .post-meta {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #666;
+    }
+    
+    .bg-dark .post-meta {
+      color: #aaa;
+    }
+    
+    .post-tags {
+      margin-left: 1rem;
+    }
+    
+    .tag {
+      margin-right: 0.5rem;
+      font-style: italic;
+    }
+    
+    .post-description {
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(125, 125, 125, 0.2);
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .social-links li {
+      margin-right: 1rem;
+    }
+    
+    .social-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    #theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      margin-left: 1rem;
+      color: inherit;
+    }
+    
+    .no-js {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+    }
+    
+    @media (max-width: 768px) {
+      .blog-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .nav-links li {
+        margin-left: 1rem;
+      }
+      
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      document.documentElement.classList.remove('no-js');
+      var storageKey = 'theme-preference';
+
+      var getColorPreference = function() {
+        if (localStorage.getItem(storageKey))
+          return localStorage.getItem(storageKey);
+        else
+          return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      };
+
+      var theme = { value: getColorPreference() };
+
+      var reflectPreference = function() {
+        document.documentElement.classList.remove('bg-light', 'bg-dark');
+        document.documentElement.classList.add('bg-' + theme.value);
+        document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+      };
+
+      reflectPreference();
+
+      window.onload = function() {
+        reflectPreference();
+
+        document.querySelector('#theme-toggle')?.addEventListener('click', function() {
+          theme.value = theme.value === 'light' ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+      };
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', function({matches:isDark}) {
+          theme.value = isDark ? 'dark' : 'light';
+          localStorage.setItem(storageKey, theme.value);
+          reflectPreference();
+        });
+    })();
+  </script>
+  
+  <!-- Set initial theme -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme-preference') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.add(`bg-${theme}`);
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="nav-container container">
+          <div class="logo">
+            <a href="/">vaibhaav.tech</a>
+          </div>
+          <ul class="nav-links flex-list">
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/progress.html">Progress</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li>
+              <button id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+                🌓
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="header-container">
+        <h1>Blog Posts</h1>
+        <p>Articles and insights on programming, technology, and personal growth</p>
+      </div>
+      
+      <div class="blog-list">
+        <div class="post-item">
+          <a href="/blog-post-1.html" class="post-link">
+            <h2 class="post-title">Getting Started with Web Development</h2>
+            <div class="post-meta">
+              <div class="post-date">July 15, 2023</div>
+              <div class="post-tags">
+                <span class="tag">Web Development</span>
+                <span class="tag">Beginners</span>
+              </div>
+            </div>
+            <div class="post-description">
+              A comprehensive guide for beginners looking to start their journey in web development. Learn about the essential tools, languages, and resources to get you started on the right path.
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/blog-post-2.html" class="post-link">
+            <h2 class="post-title">The Importance of Clean Code</h2>
+            <div class="post-meta">
+              <div class="post-date">August 3, 2023</div>
+              <div class="post-tags">
+                <span class="tag">Best Practices</span>
+                <span class="tag">Programming</span>
+              </div>
+            </div>
+            <div class="post-description">
+              Why writing clean, maintainable code matters and how it can save you time and headaches in the long run. Explore the principles of clean code and practical tips for implementation.
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/blog-post-3.html" class="post-link">
+            <h2 class="post-title">My Favorite Development Tools</h2>
+            <div class="post-meta">
+              <div class="post-date">September 10, 2023</div>
+              <div class="post-tags">
+                <span class="tag">Tools</span>
+                <span class="tag">Productivity</span>
+              </div>
+            </div>
+            <div class="post-description">
+              A curated list of development tools that have significantly improved my workflow and productivity. From code editors to time management apps, discover tools that might help you too.
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/blog-post-4.html" class="post-link">
+            <h2 class="post-title">Understanding JavaScript Promises</h2>
+            <div class="post-meta">
+              <div class="post-date">October 20, 2023</div>
+              <div class="post-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">Async</span>
+              </div>
+            </div>
+            <div class="post-description">
+              Dive deep into JavaScript Promises and asynchronous programming. Learn how to manage asynchronous operations effectively and write cleaner, more maintainable code.
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/blog-post-5.html" class="post-link">
+            <h2 class="post-title">Responsive Design Best Practices</h2>
+            <div class="post-meta">
+              <div class="post-date">November 5, 2023</div>
+              <div class="post-tags">
+                <span class="tag">CSS</span>
+                <span class="tag">Responsive</span>
+              </div>
+            </div>
+            <div class="post-description">
+              Essential principles and techniques for creating websites that work beautifully across all devices. From flexible grids to media queries, discover the tools of responsive design.
+            </div>
+          </a>
+        </div>
+        
+        <div class="post-item">
+          <a href="/blog-post-6.html" class="post-link">
+            <h2 class="post-title">Getting Started with API Development</h2>
+            <div class="post-meta">
+              <div class="post-date">December 12, 2023</div>
+              <div class="post-tags">
+                <span class="tag">API</span>
+                <span class="tag">Backend</span>
+              </div>
+            </div>
+            <div class="post-description">
+              An introduction to building robust and secure APIs. Learn about RESTful principles, authentication, and best practices for creating APIs that developers will love to use.
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <ul class="social-links">
+        <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://twitter.com/yourusername" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <p>&copy; 2023 Vaibhaav.tech. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html> 
