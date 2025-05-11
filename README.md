@@ -87,5 +87,5 @@ All content is copyright of Vaibhaav.tech unless otherwise stated.
 
 ## Credits
 
-- Design inspiration from [lelouch.dev](https://lelouch.dev)
+- Design inspiration from [lelouch.dev](https://lelouch.dev) & [cneuralnetworks](cneuralnetworks.netlify.app)
 - Font: [IBM Plex Mono](https://www.ibm.com/plex/) 

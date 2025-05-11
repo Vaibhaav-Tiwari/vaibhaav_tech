@@ -17,7 +17,7 @@
   
   <!-- Open Graph / Facebook Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vaibhaav.tech">
+  <meta property="og:url" content="https://vaibhaav">
   <meta property="og:title" content="Vaibhaav.tech | Personal Website">
   <meta property="og:description" content="Vaibhaav's personal website - Exploring technology, programming, and personal growth">
   <meta property="og:image" content="/images/vaibhaav-social.png">
@@ -263,6 +263,23 @@
     .post-list, .report-list {
       align-items: center;
     }
+    #noise-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.10;
+    }
+    body, html {
+      background: #171717;
+    }
+    body > *:not(#noise-bg) {
+      position: relative;
+      z-index: 1;
+    }
   </style>
   
   <!-- Theme Toggle Script -->
@@ -319,6 +336,7 @@
   </script>
 </head>
 <body>
+  <canvas id="noise-bg"></canvas>
   <header>
     <div class="container">
       <nav>
@@ -330,11 +348,6 @@
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/progress.html">Progress</a></li>
             <li><a href="/about.html">About</a></li>
-            <li>
-              <button id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
-                🌓
-              </button>
-            </li>
           </ul>
         </div>
       </nav>
@@ -352,10 +365,9 @@
     <div class="container centered-content">
       <div class="main-content">
         <section class="intro">
-          <h1>Hello pepul, I'm Vaibhaav</h1>
+          <h1>hello pepul, i'm vaibhaav</h1>
           <p>
-            Welcome to my personal website. Here, I document my journey in technology, programming, and personal growth. 
-            I'm passionate about creating innovative solutions and constantly expanding my knowledge.
+            Welcome to my very own "everything place". Will be putting up everything here. From projects to blogs to hobbies to stories to literallly everything.
           </p>
         </section>
         
@@ -408,5 +420,37 @@
       <p>&copy; 2025 Vaibhaav. All rights reserved. (づ￣ ³￣)づ</p>
     </div>
   </footer>
+  <script>
+  (function() {
+    const canvas = document.getElementById('noise-bg');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function noise() {
+      const idata = ctx.createImageData(w, h);
+      const buffer32 = new Uint32Array(idata.data.buffer);
+      const len = buffer32.length;
+      for (let i = 0; i < len; i++) {
+        buffer32[i] = Math.random() < 0.5 ? 0xff000000 : 0xffffffff;
+      }
+      ctx.putImageData(idata, 0, 0);
+    }
+
+    function loop() {
+      noise();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+  </script>
 </body>
 </html> 

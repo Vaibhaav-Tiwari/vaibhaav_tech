@@ -35,11 +35,11 @@
   
   <!-- Inline critical CSS -->
   <style>
-    :root {
-      --color-bg-dark: #171717;
-      --color-bg-light: #f8f8f8;
-      --color-text-dark: #000000;
-      --color-text-light: #FBFBFB;
+      :root {
+        --color-bg-dark: #171717;
+        --color-bg-light: #f8f8f8;
+        --color-text-dark: #000000;
+        --color-text-light: #FBFBFB;
       --color-link-dark: #4a89dc;
       --color-link-light: #2964b9;
     }
@@ -167,10 +167,10 @@
       color: inherit;
     }
     
-    .no-js {
-      background-color: var(--color-bg-dark);
-      color: var(--color-text-light);
-    }
+      .no-js {
+        background-color: var(--color-bg-dark);
+        color: var(--color-text-light);
+      }
     
     @media (max-width: 600px) {
       .nav-links li {
@@ -181,58 +181,59 @@
   
   <!-- Theme Toggle Script -->
   <script>
-    (function() {
-      document.documentElement.classList.remove('no-js');
-      var storageKey = 'theme-preference';
+      (function() {
+        document.documentElement.classList.remove('no-js');
+        var storageKey = 'theme-preference';
 
-      var getColorPreference = function() {
-        if (localStorage.getItem(storageKey))
-          return localStorage.getItem(storageKey);
-        else
-          return window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light';
-      };
+        var getColorPreference = function() {
+          if (localStorage.getItem(storageKey))
+            return localStorage.getItem(storageKey);
+          else
+            return window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        };
 
-      var theme = { value: getColorPreference() };
+        var theme = { value: getColorPreference() };
 
-      var reflectPreference = function() {
-        document.documentElement.classList.remove('bg-light', 'bg-dark');
-        document.documentElement.classList.add('bg-' + theme.value);
-        document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
-      };
+        var reflectPreference = function() {
+          document.documentElement.classList.remove('bg-light', 'bg-dark');
+          document.documentElement.classList.add('bg-' + theme.value);
+          document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+        };
 
-      reflectPreference();
-
-      window.onload = function() {
         reflectPreference();
 
-        document.querySelector('#theme-toggle')?.addEventListener('click', function() {
-          theme.value = theme.value === 'light' ? 'dark' : 'light';
-          localStorage.setItem(storageKey, theme.value);
+        window.onload = function() {
           reflectPreference();
-        });
-      };
 
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', function({matches:isDark}) {
-          theme.value = isDark ? 'dark' : 'light';
-          localStorage.setItem(storageKey, theme.value);
-          reflectPreference();
-        });
-    })();
+          document.querySelector('#theme-toggle')?.addEventListener('click', function() {
+            theme.value = theme.value === 'light' ? 'dark' : 'light';
+            localStorage.setItem(storageKey, theme.value);
+            reflectPreference();
+          });
+        };
+
+        window
+          .matchMedia('(prefers-color-scheme: dark)')
+          .addEventListener('change', function({matches:isDark}) {
+            theme.value = isDark ? 'dark' : 'light';
+            localStorage.setItem(storageKey, theme.value);
+            reflectPreference();
+          });
+      })();
   </script>
   
   <!-- Set initial theme -->
   <script>
-    (function() {
-      const theme = localStorage.getItem('theme-preference') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.classList.add(`bg-${theme}`);
-    })();
+      (function() {
+        const theme = localStorage.getItem('theme-preference') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.classList.add(`bg-${theme}`);
+      })();
   </script>
 </head>
 <body>
+  <canvas id="noise-bg"></canvas>
   <header>
     <div class="container">
       <nav>
@@ -244,11 +245,6 @@
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/progress.html">Progress</a></li>
             <li><a href="/about.html">About</a></li>
-            <li>
-              <button id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
-                🌓
-              </button>
-            </li>
           </ul>
         </div>
       </nav>
@@ -258,7 +254,7 @@
   <main>
     <div class="container">
       <article>
-        <h1 class="article-title">My Journey From Education to Technology</h1>
+        <h1 class="article-title">just another wannabe polymath?</h1>
         
         <div class="article-content">
           <p>
@@ -323,5 +319,56 @@
       <p>&copy; 2025 Vaibhaav. All rights reserved. (*≧ω≦)</p>
     </div>
   </footer>
+  <style>
+  #noise-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.10;
+  }
+  body, html {
+    background: #171717;
+  }
+  body > *:not(#noise-bg) {
+    position: relative;
+    z-index: 1;
+  }
+  </style>
+  <script>
+  (function() {
+    const canvas = document.getElementById('noise-bg');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function noise() {
+      const idata = ctx.createImageData(w, h);
+      const buffer32 = new Uint32Array(idata.data.buffer);
+      const len = buffer32.length;
+      for (let i = 0; i < len; i++) {
+        buffer32[i] = Math.random() < 0.5 ? 0xff000000 : 0xffffffff;
+      }
+      ctx.putImageData(idata, 0, 0);
+    }
+
+    function loop() {
+      noise();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+  </script>
 </body>
 </html> 

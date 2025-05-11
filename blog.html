@@ -239,6 +239,24 @@
         align-items: flex-start;
       }
     }
+    
+    #noise-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.10;
+    }
+    body, html {
+      background: #171717;
+    }
+    body > *:not(#noise-bg) {
+      position: relative;
+      z-index: 1;
+    }
   </style>
   
   <!-- Theme Toggle Script -->
@@ -295,6 +313,7 @@
   </script>
 </head>
 <body>
+  <canvas id="noise-bg"></canvas>
   <header>
     <div class="container">
       <nav>
@@ -306,11 +325,6 @@
             <li><a href="/blog.html">Blog</a></li>
             <li><a href="/progress.html">Progress</a></li>
             <li><a href="/about.html">About</a></li>
-            <li>
-              <button id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
-                🌓
-              </button>
-            </li>
           </ul>
         </div>
       </nav>
@@ -434,5 +448,37 @@
       <p>&copy; 2025 Vaibhaav. All rights reserved. (ʘ‿ʘ✿)</p>
     </div>
   </footer>
+  <script>
+  (function() {
+    const canvas = document.getElementById('noise-bg');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function noise() {
+      const idata = ctx.createImageData(w, h);
+      const buffer32 = new Uint32Array(idata.data.buffer);
+      const len = buffer32.length;
+      for (let i = 0; i < len; i++) {
+        buffer32[i] = Math.random() < 0.5 ? 0xff000000 : 0xffffffff;
+      }
+      ctx.putImageData(idata, 0, 0);
+    }
+
+    function loop() {
+      noise();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+  </script>
 </body>
 </html> 
